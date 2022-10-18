@@ -19,7 +19,7 @@ const initialState = {
       {
         id: '3',
         title: 'Kopciuszek',
-        shortDescription: 'Bajka o krasnaludkach i królenie',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
         content: 'Main content of the article',
         publishedDate: '02-02-2022',
         author: 'Andersen'
