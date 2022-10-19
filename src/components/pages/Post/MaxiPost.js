@@ -7,8 +7,6 @@ import PopUp from './PopUp.js';
 
 const MaxiPost = props =>{
     const [show, setShow] = useState(false);
-
-    
     const handleShow = () => setShow(true);
 
     return (
@@ -17,7 +15,7 @@ const MaxiPost = props =>{
         <div className={styles.buttonsWrapper}>
             <h2>{props.title}</h2>
             <Button variant="primary" onClick={handleShow}>
-                Delete<PopUp show={show}/>
+                Delete <PopUp show={show}/>
             </Button>
         </div>
        
