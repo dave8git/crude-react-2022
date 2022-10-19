@@ -15,7 +15,7 @@ const MiniPost = props =>{
                 <Card.Text>
                     {props.shortDescription}
                 </Card.Text>
-                <Button as={NavLink} to="/post/:{id}" variant="primary">Read More</Button>
+                <Button as={NavLink} to={'/post/' + props.id} variant="primary">Read More</Button>
             </Card.Body>
         </Card>
       </div>
