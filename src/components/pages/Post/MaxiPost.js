@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../../redux/postsRedux.js';
 import { useParams} from 'react-router'
-import { Navigate } from 'react-router-dom';
+
 
 const MaxiPost = props => {
   const [show, setShow] = useState(false);
@@ -23,8 +23,7 @@ const MaxiPost = props => {
     handleClose();
   }
 
-  if(!props.post) return <Navigate to="/" /> 
-  else 
+ 
   return (
     <div>
       {/* {JSON.stringify(props)} */}
