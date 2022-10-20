@@ -25,7 +25,7 @@ const List = props => {
           <header>
               <h2>MaxiPost</h2>
           </header>
-          <MaxiPost {...post} />
+          <MaxiPost {...post} post={post} />
           {/* <section className={styles.columns}>
               {columns.map(column => <Column key={column.id} {...column} />)};
           </section> */}
