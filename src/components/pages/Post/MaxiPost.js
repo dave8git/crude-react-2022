@@ -14,11 +14,11 @@ const MaxiPost = props => {
   const handleClose = () => setShow(false);
 
   const dispatch = useDispatch();
-  const {id} =useParams();
+  const id = useParams();
   const handleDelete = (e) => {
     e.preventDefault();
-    console.log(id);
-    dispatch(deletePost({id}));
+    console.log('id', id);
+    dispatch(deletePost(id));
     handleClose();
   }
 
