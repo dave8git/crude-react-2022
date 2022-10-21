@@ -1,4 +1,5 @@
 import MiniPost from '../Post/MiniPost';
+import PostAdd from '../PostAdd/PostAdd';
 import { useSelector } from 'react-redux';
 import { getAllPosts } from '../../../redux/postsRedux';
 import  styles  from './Home.module.scss';
@@ -10,6 +11,7 @@ function Home() {
     return (
       <div className={styles.cardFlex}>
         {posts.map((post) => <MiniPost key={post.id} {...post} />)}
+        <PostAdd />
       </div>
     );
   }
