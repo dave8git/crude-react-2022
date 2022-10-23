@@ -9,13 +9,14 @@ export const getPostsById = ({posts}, id) => posts.find(post => post.id === id);
 const createActionName = actionName => `app/posts/${actionName}`;
 const DELETE_POST = createActionName('DELETE_POST');
 const ADD_POST = createActionName('ADD_POST');
+const EDIT_POST = createActionName('EDIT_POST');
 
 // action creators
 export const deletePost = payload => ({type: DELETE_POST, payload: payload});
-export const addPost = payload => ({type: ADD_POST, title: payload.title, description: payload.description, content: payload.content, date: payload.date, author: payload.author })
+export const addPost = payload => ({type: ADD_POST, payload: payload })
+export const editPost = payload => ({ type: EDIT_POST, payload: payload });
 
 const postsReducer = (statePart = [], action) => {
-    console.log('payload', action);
     switch (action.type) {
         case DELETE_POST: 
             console.log('działa', statePart);
@@ -23,7 +24,10 @@ const postsReducer = (statePart = [], action) => {
             console.log(wynik);
             return wynik;
         case ADD_POST: 
+            console.log('action', action);
             return [...statePart, {...action, id: shortid()}];
+        case EDIT_POST:
+            return statePart.map(post => (post.id === action.payload.id ? { ...post, ...action.payload } : post));
         default: 
             return statePart;
     };
