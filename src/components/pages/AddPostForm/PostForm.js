@@ -17,7 +17,7 @@ import shortid from 'shortid';
 
     const handleSubmit = e => {
         e.preventDefault();
-            action({id: shortid(), title: title, description: description, content: content, date: date, author: author }); // wywołanie akcji
+            action({id: shortid(), title: title, description: description, content: content, publishedDate: date, author: author }); // wywołanie akcji
             setTitle('');
             setDescription('');
             setContent('');
