@@ -17,7 +17,7 @@ import shortid from 'shortid';
 
     const handleSubmit = e => {
         e.preventDefault();
-            action({id: shortid(), title: title, description: description, content: content, publishedDate: date, author: author }); // wywołanie akcji
+            action({id: shortid(), title: title, description: description, content: content, publishedDate: date.toLocaleDateString("pl-PL").replaceAll('.', '-'), author: author }); // wywołanie akcji
             setTitle('');
             setDescription('');
             setContent('');
@@ -36,7 +36,7 @@ import shortid from 'shortid';
         Date: <DatePicker dateFormat="dd/MM/yyyy" selected={date} onChange={(date) => setDate(date)} />
         Author: <input type="text" value={author} onChange={e => setAuthor(e.target.value)} />
 
-        <Button type="submit">{actionText}</Button>
+        <Button type="submit">{props.actionText}</Button>
     </form>
     )
  }
