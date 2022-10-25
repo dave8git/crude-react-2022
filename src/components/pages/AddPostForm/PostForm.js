@@ -9,10 +9,18 @@ import "react-datepicker/dist/react-datepicker.css";
 import shortid from 'shortid';
 
  const PostForm = ({action, actionText, ...props}) => {  // oczekuje na parametry action i action text, oraz inne parametry z pól formularza
+    console.log('props.date', props.date);
+    let date2 = props.date; 
+    if(date2 !== 'undefined') {
+        date2 = new Date(props.date);
+    } 
+
+    // const date1 = props.date.toLocaleDateString("pl-PL").replaceAll('.', '-');
+    
     const [title, setTitle] = useState(props.title || '');
-    const [description, setDescription] = useState(props.description ||'');
+    const [description, setDescription] = useState(props.shortDescription ||'');
     const [content, setContent] = useState(props.content ||'');
-    const [date, setDate] = useState(props.date || '');
+    const [date, setDate] = useState(date2 || '');
     const [author, setAuthor] = useState(props.author || '');
     let navigate = useNavigate();
 
@@ -21,8 +29,8 @@ import shortid from 'shortid';
 
     const handleSubmit = e => {
         e.preventDefault();
-            const date1 = date.toLocaleDateString("pl-PL").replaceAll('.', '-');
-            action({id: id, title: title, shortDescription: description, content: content, publishedDate: date1, author: author, actionText: actionText }); // wywołanie akcji
+            const date3 = date.toLocaleDateString("pl-PL").replaceAll('.', '-');
+            action({id: id, title: title, shortDescription: description, content: content, publishedDate: date3, author: author, actionText: actionText }); // wywołanie akcji
             setTitle('');
             setDescription('');
             setContent('');
