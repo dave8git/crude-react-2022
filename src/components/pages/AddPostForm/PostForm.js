@@ -11,7 +11,7 @@ import shortid from 'shortid';
  const PostForm = ({action, actionText, ...props}) => {  // oczekuje na parametry action i action text, oraz inne parametry z pól formularza
     console.log('props.date', props.date);
     let date2 = props.date; 
-    if(date2 !== 'undefined') {
+    if(date2) {
         date2 = new Date(props.date);
     } 
 
