@@ -21,7 +21,8 @@ import shortid from 'shortid';
 
     const handleSubmit = e => {
         e.preventDefault();
-            action({id: id, title: title, description: description, content: content, publishedDate: date.toLocaleDateString("pl-PL").replaceAll('.', '-'), author: author }); // wywołanie akcji
+            const date1 = date.toLocaleDateString("pl-PL").replaceAll('.', '-');
+            action({id: id, title: title, shortDescription: description, content: content, publishedDate: date1, author: author }); // wywołanie akcji
             setTitle('');
             setDescription('');
             setContent('');
@@ -29,8 +30,7 @@ import shortid from 'shortid';
             setAuthor('');
             navigate('/');
     }
-    
-    console.log('props', props);
+    console.log('PostForm props', props);
     //const dispatch = useDispatch();
 
     return(
@@ -41,7 +41,7 @@ import shortid from 'shortid';
         Date: <DatePicker dateFormat="dd/MM/yyyy" selected={date} onChange={(date) => setDate(date)} />
         Author: <input type="text" value={author} onChange={e => setAuthor(e.target.value)} />
 
-        <Button type="submit">{props.actionText}</Button>
+        <Button type="submit">{props.children}</Button>
     </form>
     )
  }

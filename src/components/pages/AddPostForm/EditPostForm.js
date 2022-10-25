@@ -29,12 +29,10 @@ import shortid from 'shortid';
         dispatch(editPost({...post, id}));
         navigate('/');
       };
-    
-    console.log(post.publishedDate);
-
+    const edit = 'edit';
     return(
         <>
-            <PostForm action={handleSubmit} actionText='Edit post' title={post.title} description={post.description} date={post.publishedDate} content={post.content} author={post.author} />
+            <PostForm action={handleSubmit} actionText={edit} title={post.title} shortDescription={post.shortDescription} content={post.content} author={post.author} />
         </>
     );
 };
