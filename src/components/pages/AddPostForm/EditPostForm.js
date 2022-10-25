@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { addPost, editPost, getPostsById } from '../../../redux/postsRedux';
 import { useNavigate } from 'react-router-dom';
 import PostForm from './PostForm';
@@ -17,7 +18,7 @@ import shortid from 'shortid';
     let navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const id = props.postId;
+    const id = useParams();
 
     const post = useSelector((state) => getPostsById(state, id));
 

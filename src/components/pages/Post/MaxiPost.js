@@ -10,6 +10,7 @@ import { useParams} from 'react-router'
 import { useSelector } from 'react-redux';
 import { getPostsById } from '../../../redux/postsRedux';
 import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const MaxiPost = props => {
   const [show, setShow] = useState(false);
@@ -17,6 +18,7 @@ const MaxiPost = props => {
   const handleClose = () => setShow(false);
 
   const post = useSelector((state) => getPostsById(state, props.id));
+
 
   const dispatch = useDispatch();
   const handleDelete = (e) => {
@@ -53,9 +55,12 @@ const MaxiPost = props => {
       </div>
       <div className={styles.buttonFlex}>
       <div>
-        <Button variant="outline-info" onClick={handleShow}>
-          Edit
-        </Button></div>
+        <Link to={`/post/edit/:${props.id}`}>
+          <Button variant="outline-info">
+            Edit
+          </Button>
+        </Link>
+        </div>
       <div>
         <Button variant="outline-danger" onClick={handleShow}>
           Delete
