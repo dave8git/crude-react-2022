@@ -15,14 +15,13 @@ import shortid from 'shortid';
     // const [date, setDate] = useState('');
     // const [author, setAuthor] = useState('');
     let navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSubmit = post => {
             dispatch(addPost(post)); // wywołanie akcji
             navigate('/');
     }
     
-    const dispatch = useDispatch();
-
     return(
         <>
             <PostForm action={handleSubmit} actionText="Add post" />

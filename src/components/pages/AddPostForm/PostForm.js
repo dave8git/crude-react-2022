@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPost } from '../../../redux/postsRedux';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router';
 import Button from 'react-bootstrap/Button';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -15,9 +16,12 @@ import shortid from 'shortid';
     const [author, setAuthor] = useState(props.author || '');
     let navigate = useNavigate();
 
+    console.log('PostForm props', props.props);
+    const id = useParams();
+
     const handleSubmit = e => {
         e.preventDefault();
-            action({id: shortid(), title: title, description: description, content: content, publishedDate: date.toLocaleDateString("pl-PL").replaceAll('.', '-'), author: author }); // wywołanie akcji
+            action({id: id, title: title, description: description, content: content, publishedDate: date.toLocaleDateString("pl-PL").replaceAll('.', '-'), author: author }); // wywołanie akcji
             setTitle('');
             setDescription('');
             setContent('');
@@ -26,6 +30,7 @@ import shortid from 'shortid';
             navigate('/');
     }
     
+    console.log('props', props);
     //const dispatch = useDispatch();
 
     return(

@@ -18,22 +18,26 @@ import shortid from 'shortid';
     let navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const id = useParams();
+    const {id} = useParams();
 
+    console.log(id);
     const post = useSelector((state) => getPostsById(state, id));
 
-    const handleSubmit = (post) => {
-            dispatch(editPost({...post, id})); // wywołanie akcji
-            navigate('/');
-    }
-    
+    console.log('post', post);
 
+    const handleSubmit = (post) => {
+        dispatch(editPost({...post, id}));
+        navigate('/');
+      };
+    
+    console.log(post.publishedDate);
 
     return(
         <>
-            <PostForm action={handleSubmit} actionText="Edit post" />
+            <PostForm action={handleSubmit} actionText='Edit post' title={post.title} description={post.description} date={post.publishedDate} content={post.content} author={post.author} />
         </>
-    )
- }
+    );
+};
 
- export default EditPostForm;
+export default EditPostForm;
+

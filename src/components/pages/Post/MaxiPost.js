@@ -19,6 +19,7 @@ const MaxiPost = props => {
 
   const post = useSelector((state) => getPostsById(state, props.id));
 
+  console.log(post);
 
   const dispatch = useDispatch();
   const handleDelete = (e) => {
@@ -55,7 +56,7 @@ const MaxiPost = props => {
       </div>
       <div className={styles.buttonFlex}>
       <div>
-        <Link to={`/post/edit/:${props.id}`}>
+        <Link to={`/post/edit/${props.id}`} props={post}>
           <Button variant="outline-info">
             Edit
           </Button>
