@@ -69,13 +69,12 @@ import shortid from 'shortid';
         {dateError && <small className="d-block form-text text-danger mt-2">Date cannot be empty</small>}
         Author: <input type="text" value={author} onChange={e => setAuthor(e.target.value)} />
         Category: <select name="pets" >
-                        <option value="">--Please choose an option--</option>
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="parrot">Parrot</option>
-                        <option value="spider">Spider</option>
-                        <option value="goldfish">Goldfish</option>
+                    <option value="">--Please choose an option--</option>
+                        {categories.map((category, index) => (
+                            <option key={index} value={category}>
+                                {category}
+                            </option>
+                        ))}
                 </select>
         <Button type="submit">{actionText}</Button>
     </form>
