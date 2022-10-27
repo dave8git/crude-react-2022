@@ -25,6 +25,7 @@ import shortid from 'shortid';
     const [content, setContent] = useState(props.content ||'');
     const [date, setDate] = useState(date2 || '');
     const [author, setAuthor] = useState(props.author || '');
+    const [category, setCategory] = useState(props.category || '');
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
 
@@ -41,7 +42,7 @@ import shortid from 'shortid';
             setDateError(!date)
             if(content && date){
                 const date3 = date.toLocaleDateString("pl-PL").replaceAll('.', '-');
-                action({id: id, title: title, shortDescription: description, content: content, publishedDate: date3, author: author, actionText: actionText }); // wywołanie akcji
+                action({id: id, title: title, shortDescription: description, content: content, publishedDate: date3, author: author, actionText: actionText, category: category }); // wywołanie akcji
                 setTitle('');
                 setDescription('');
                 setContent('');
@@ -67,8 +68,9 @@ import shortid from 'shortid';
         {contentError && <small className="d-block form-text text-danger mt-2">Content cannot be empy</small>}
         Date: <DatePicker dateFormat="dd/MM/yyyy" selected={date} onChange={(date) => setDate(date)} />
         {dateError && <small className="d-block form-text text-danger mt-2">Date cannot be empty</small>}
-        Author: <input type="text" value={author} onChange={e => setAuthor(e.target.value)} />
-        Category: <select name="pets" >
+        Author: <input {...register("title", { required: true, minLength: 3 })} type="text" value={author} onChange={e => setAuthor(e.target.value)} />
+        {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
+        Category: <select {...register('category', {required: true})} as="select" value={category ? category: '1'} name="categories" >
                     <option value="">--Please choose an option--</option>
                         {categories.map((category, index) => (
                             <option key={index} value={category}>
