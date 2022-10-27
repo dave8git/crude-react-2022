@@ -11,9 +11,12 @@ import { useSelector } from 'react-redux';
 import { getPostsById } from '../../../redux/postsRedux';
 import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const MaxiPost = props => {
   const [show, setShow] = useState(false);
+  const [value, setValue] = useState('');
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
@@ -72,7 +75,7 @@ const MaxiPost = props => {
     </div>
       <div><b>Author:</b>{post.author}</div>
       <div><b>Published:</b>{post.publishedDate}</div>
-      <div>{post.content}</div>
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </div>
   );
 }

@@ -22,8 +22,13 @@ const initialState = {
         shortDescription: 'Bajka o krasnaludkach i krówlenie',
         content: 'Main content of the article',
         publishedDate: '02-02-2022',
-        author: 'Andersen'
+        author: 'Andersen',
       }
+    ],
+    categories: [
+      'book', 
+      'music',
+      'movies'
     ]
 }
 
