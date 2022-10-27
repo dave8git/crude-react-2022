@@ -1,0 +1,14 @@
+.wrapContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonFlex {
+    display: flex;
+    button {
+        margin: 10px;
+    }
+}
+.redText {
+    color: red;
+}
