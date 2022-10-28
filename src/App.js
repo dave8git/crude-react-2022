@@ -5,6 +5,8 @@ import Post from './components/pages/Post/Post';
 import NotFound from './components/pages/NotFound/NotFound';
 import AddPostForm from './components/pages/AddPostForm/AddPostForm';
 import EditPostForm from './components/pages/AddPostForm/EditPostForm';
+import Categories from './components/pages/Categories';
+import PostByCategory from './components/pages/PostByCategory';
 import Footer from './components/views/Footer/Footer';
 import Header from './components/views/Header/Header';
 import { Container} from 'react-bootstrap';
@@ -23,6 +25,8 @@ function App() {
       <Route path="/post/add" element={<AddPostForm />} />
       <Route path="/post/edit/:id" element={<EditPostForm />} />
       <Route path="/about" element={<About />} />
+      <Route path="/categories" element={<Categories />} />
+      <Route path="/categories/:postCategory" element={<PostByCategory />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Container>
