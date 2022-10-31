@@ -6,7 +6,8 @@ const initialState = {
         shortDescription: 'Short description of the article...',
         content: 'Main content of the article',
         publishedDate: '02-02-2022',
-        author: 'John Doe'
+        author: 'John Doe',
+        category: 'music'
       },
       {
         id: '2',
@@ -14,7 +15,8 @@ const initialState = {
         shortDescription: 'Short description of the article...',
         content: 'Main content of the article',
         publishedDate: '02-02-2022',
-        author: 'Janek Kowalski'
+        author: 'Janek Kowalski',
+        category: 'book'
       },
       {
         id: '3',
@@ -23,6 +25,7 @@ const initialState = {
         content: 'Main content of the article',
         publishedDate: '02-02-2022',
         author: 'Andersen',
+        category: 'movies'
       }
     ],
     categories: [

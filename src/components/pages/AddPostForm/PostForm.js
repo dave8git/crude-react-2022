@@ -8,6 +8,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Button from 'react-bootstrap/Button';
 import DatePicker from "react-datepicker";
+import Form from 'react-bootstrap/Form';
 import "react-datepicker/dist/react-datepicker.css";
 import shortid from 'shortid';
 
@@ -61,17 +62,33 @@ import shortid from 'shortid';
 
     return(
     <form onSubmit={validate(handleSubmit)}>
-       
-        Title: <input {...register("title", { required: true, minLength: 3 })} type="text" placeholder="Enter title" value={title} onChange={e => setTitle(e.target.value)} />
-        {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
-        Description: <input type="text" value={description} onChange={e => setDescription(e.target.value)} />
-        Content: <ReactQuill value={content} onChange={setContent} />
-        {contentError && <small className="d-block form-text text-danger mt-2">Content cannot be empy</small>}
-        Date: <DatePicker dateFormat="dd/MM/yyyy" selected={date} onChange={(date) => setDate(date)} />
-        {dateError && <small className="d-block form-text text-danger mt-2">Date cannot be empty</small>}
-        Author: <input {...register("title", { required: true, minLength: 3 })} type="text" value={author} onChange={e => setAuthor(e.target.value)} />
-        {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
-        Category: <select {...register('category', {required: true})} as="select" value={category ? category: '1'} name="categories" >
+        <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledTextInput">Title: </Form.Label>
+            <input {...register("title", { required: true, minLength: 3 })} type="text" placeholder="Enter title" value={title} onChange={e => setTitle(e.target.value)} />
+            {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
+        </Form.Group>
+        <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledTextInput">Description: </Form.Label>
+                <input type="text" value={description} onChange={e => setDescription(e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledTextInput">Description: </Form.Label>
+            <ReactQuill value={content} onChange={setContent} />
+            {contentError && <small className="d-block form-text text-danger mt-2">Content cannot be empy</small>}
+        </Form.Group>
+        <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledTextInput">Date: </Form.Label>
+             <DatePicker dateFormat="dd/MM/yyyy" selected={date} onChange={(date) => setDate(date)} />
+            {dateError && <small className="d-block form-text text-danger mt-2">Date cannot be empty</small>}
+        </Form.Group>
+        <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledTextInput">Author: </Form.Label>
+            <input {...register("title", { required: true, minLength: 3 })} type="text" value={author} onChange={e => setAuthor(e.target.value)} />
+            {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
+        </Form.Group>
+        <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledTextInput">Category: </Form.Label>
+                 <select {...register('category', {required: true})} as="select" value={category ? category: '1'} name="categories" >
                     <option value="">--Please choose an option--</option>
                         {categories.map((category, index) => (
                             <option key={index} value={category}>
@@ -79,6 +96,7 @@ import shortid from 'shortid';
                             </option>
                         ))}
                 </select>
+        </Form.Group>
         <Button type="submit">{actionText}</Button>
     </form>
     )
