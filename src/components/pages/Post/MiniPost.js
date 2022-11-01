@@ -7,11 +7,12 @@ const MiniPost = props =>{
     return (
       <div>
         {/* {JSON.stringify(props)} */}
-        <Card>
+        <Card className="m-5">
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <div><b>Author: </b>{props.author}</div>
                 <div><b>Published: </b>{props.publishedDate}</div>
+                <div><b>Category:</b>{props.category}</div>
                 <Card.Text>
                     {props.shortDescription}
                 </Card.Text>

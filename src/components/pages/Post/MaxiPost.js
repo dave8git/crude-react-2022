@@ -76,6 +76,7 @@ const MaxiPost = props => {
       <div><b>Author:</b>{post.author}</div>
       <div><b>Published:</b>{post.publishedDate}</div>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div><b>Category:</b>{post.category}</div>
     </div>
   );
 }

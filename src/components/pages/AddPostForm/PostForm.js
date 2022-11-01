@@ -14,9 +14,9 @@ import shortid from 'shortid';
 
  const PostForm = ({action, actionText, ...props}) => {  // oczekuje na parametry action i action text, oraz inne parametry z pól formularza
     console.log('props.date', props.date);
-    let date2 = props.date; 
+    let date2 = props.publishedDate; 
     if(date2) {
-        date2 = new Date(props.date);
+        date2 = new Date(props.publishedDate);
     } 
 
     // const date1 = props.date.toLocaleDateString("pl-PL").replaceAll('.', '-');
@@ -29,7 +29,6 @@ import shortid from 'shortid';
     const [category, setCategory] = useState(props.category || '');
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
-
 
     const { register, handleSubmit: validate, formState: { errors } } = useForm();
     let navigate = useNavigate();
@@ -52,7 +51,7 @@ import shortid from 'shortid';
                 navigate('/');
             }
     }
-    console.log('PostForm props', props);
+    console.log('category', category);
     //const dispatch = useDispatch();
 
 
@@ -83,19 +82,20 @@ import shortid from 'shortid';
         </Form.Group>
         <Form.Group className="mb-3">
             <Form.Label htmlFor="disabledTextInput">Author: </Form.Label>
-            <input {...register("title", { required: true, minLength: 3 })} type="text" value={author} onChange={e => setAuthor(e.target.value)} />
+            <input {...register("author", { required: true, minLength: 3 })} type="text" value={author} onChange={e => setAuthor(e.target.value)} />
             {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
         </Form.Group>
         <Form.Group className="mb-3">
             <Form.Label htmlFor="disabledTextInput">Category: </Form.Label>
-                 <select {...register('category', {required: true})} as="select" value={category ? category: '1'} name="categories" >
+                 <select {...register('category', {required: true})} as="select" value={category ? category: ''} name="category" onChange={(e) => {setCategory(e.target.value); console.log('setCategory', e.target.value)}}>
                     <option value="">--Please choose an option--</option>
-                        {categories.map((category, index) => (
-                            <option key={index} value={category}>
-                                {category}
+                        {categories.map((cat, index) => (
+                            <option selected={cat === category} key={index} value={cat}>
+                                {cat}
                             </option>
                         ))}
                 </select>
+                {errors.category && <small className="d-block form-text text-danger mt-2">Category is required</small>}
         </Form.Group>
         <Button type="submit">{actionText}</Button>
     </form>

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import postsReducer, { getPostByCategory } from '../../redux/postsRedux';
-import Post from './Post/Post.js';
+import MiniPost from './Post/MiniPost.js';
 
 const CategoryView = () => {
     const { postCategory } = useParams(); 
@@ -14,7 +14,7 @@ const CategoryView = () => {
             {posts.map((post) => (
                 
                 <div key={post.id}>
-                    <Post {...post} />
+                    <MiniPost {...post} />
                 </div>
                 
             ))}

@@ -32,7 +32,7 @@ import shortid from 'shortid';
     const edit = 'edit';
     return(
         <>
-            <PostForm action={handleSubmit} actionText={edit} title={post.title} shortDescription={post.shortDescription} date={post.publishedDate} content={post.content} author={post.author} />
+            <PostForm action={handleSubmit} actionText={edit} {...post} />
         </>
     );
 };

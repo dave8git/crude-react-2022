@@ -25,8 +25,81 @@ const initialState = {
         content: 'Main content of the article',
         publishedDate: '02-02-2022',
         author: 'Andersen',
+        category: 'book'
+      },
+      {
+        id: '4',
+        title: 'Kopciuszek',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
+        content: 'Main content of the article',
+        publishedDate: '02-02-2022',
+        author: 'Andersen',
         category: 'movies'
+      },
+      {
+        id: '5',
+        title: 'Kopciuszek',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
+        content: 'Main content of the article',
+        publishedDate: '02-02-2022',
+        author: 'Andersen',
+        category: 'book'
+      },
+      {
+        id: '6',
+        title: 'Kopciuszek',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
+        content: 'Main content of the article',
+        publishedDate: '02-02-2022',
+        author: 'Andersen',
+        category: 'movies'
+      },
+      {
+        id: '7',
+        title: 'Kopciuszek',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
+        content: 'Main content of the article',
+        publishedDate: '02-02-2022',
+        author: 'Andersen',
+        category: 'music'
+      },
+      {
+        id: '8',
+        title: 'Kopciuszek',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
+        content: 'Main content of the article',
+        publishedDate: '02-02-2022',
+        author: 'Andersen',
+        category: 'movies'
+      },
+      {
+        id: '9',
+        title: 'Kopciuszek',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
+        content: 'Main content of the article',
+        publishedDate: '02-02-2022',
+        author: 'Andersen',
+        category: 'movies'
+      },
+      {
+        id: '10',
+        title: 'Kopciuszek',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
+        content: 'Main content of the article',
+        publishedDate: '02-02-2022',
+        author: 'Andersen',
+        category: 'music'
+      },
+      {
+        id: '11',
+        title: 'Kopciuszek',
+        shortDescription: 'Bajka o krasnaludkach i krówlenie',
+        content: 'Main content of the article',
+        publishedDate: '02-02-2022',
+        author: 'Andersen',
+        category: 'music'
       }
+      
     ],
     categories: [
       'book', 
