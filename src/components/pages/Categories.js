@@ -11,11 +11,12 @@ return (
     <div>
         {categories.map((category) => (
             <div key={category}>
-            <Link to={'/categories/' + category}>
-                <Button key={category} variant={'primary'}>
-                    {category}
-                </Button>
-            </Link>
+                <Link to={'/categories/' + category}>
+                    {console.log('cat', category)}
+                    <Button key={category} variant={'primary'}>
+                        {category}
+                    </Button>
+                </Link>
             </div>
         ))}
     </div>

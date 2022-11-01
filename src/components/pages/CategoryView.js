@@ -5,12 +5,14 @@ import Post from './Post/Post.js';
 
 const CategoryView = () => {
     const { postCategory } = useParams(); 
+    console.log('postCategory', postCategory);
     const posts = useSelector((state) => getPostByCategory(state, postCategory)); 
-    console.log(posts);
+    console.log('posts', posts);
 
     return (
         <div>
             {posts.map((post) => (
+                
                 <div key={post.id}>
                     <Post {...post} />
                 </div>
